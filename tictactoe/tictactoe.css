@@ -1,0 +1,17 @@
+body {
+  padding: 20px;
+}
+
+.hash-middle-row{
+  border-top: 1px solid #0080ff;
+  border-bottom: 1px solid #0080ff;
+}
+ .hash-middle-column {
+   border-left: 1px solid #0080ff;
+   border-right: 1px solid #0080ff;
+ }
+
+ label {
+   height: 50px;
+   padding-top: 20px;
+ }

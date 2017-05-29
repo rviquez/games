@@ -1,0 +1,16 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+/nbproject/private/
+/nbproject/
+/pvcloud.zip
+.DS_Store
+
+#################
+## WebStorm
+#################
+
+.idea/
+/dist.zip
