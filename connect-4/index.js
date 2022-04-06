@@ -78,10 +78,32 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function checkBoard() {
-    for (let i = 0; i < winningArrays.length; i++) {
+    for (let j = 0; j < winningArrays.length; j++) {
+      const square1 = squares[winningArrays[j][0]];
+      const square2 = squares[winningArrays[j][1]];
+      const square3 = squares[winningArrays[j][2]];
+      const square4 = squares[winningArrays[j][3]];
 
+      if (
+        square1.classList.contains("player-one") &&
+        square2.classList.contains("player-one") &&
+        square3.classList.contains("player-one") &&
+        square4.classList.contains("player-one")
+      ) {
+        console.log("p1won");
+        result.innerHTML = "Player One wins!"
+      }
 
+      if (
+        square1.classList.contains("player-two") &&
+        square2.classList.contains("player-two") &&
+        square3.classList.contains("player-two") &&
+        square4.classList.contains("player-two")
+      ) {
+        result.innerHTML = "Player two wins!"
+      }
     }
+    
   }
 
   for (let i = 0; i < squares.length; i++) {
@@ -101,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         alert("can't go here");
       }
+      checkBoard();
     };
   }
 });
