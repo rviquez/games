@@ -10,23 +10,33 @@
 </head>
 
 <body>
+  <div class="info-container">
+    <h1 class="current-player">Player 1: <span id="player1-score"></span></h1>
+    <h1>Player 2: <span id="player2-score"></span></h1>
+  </div>
   <div class="grid">
+    <!-- <h3 id="score">Score</h3> -->
     <div class="numbers-container">
-      <div id="1"><h1>1</h1></div>
-      <div id="2"><h1>2</h1></div>
-      <div id="3"><h1>3</h1></div>
-      <div id="4"><h1>4</h1></div>
-      <div id="5"><h1>5</h1></div>
-      <div id="6"><h1>6</h1></div>
-      <div id="7"><h1>7</h1></div>
-      <div id="8"><h1>8</h1></div>
-      <div id="9"><h1>9</h1></div>
+      <div id="1" class="number disabled">1</div>
+      <div id="2" class="number disabled">2</div>
+      <div id="3" class="number disabled">3</div>
+      <div id="4" class="number disabled">4</div>
+      <div id="5" class="number disabled">5</div>
+      <div id="6" class="number disabled">6</div>
+      <div id="7" class="number disabled">7</div>
+      <div id="8" class="number disabled">8</div>
+      <div id="9" class="number disabled">9</div>
     </div>
     <div class="dice-container">
-      <div class="dice"><h1>1</h1></div>
-      <div class="dice"><h1>2</h1></div>
+      <div class="dice disabled"></div>
+      <div class="dice disabled"></div>
     </div>
+    <div class="actions-container">
+      <button id="start">Start</button>
+      <button id="give-up" disabled>Give up</button>
+    </div>    
   </div>
+  
   <script src="app.js"></script>
 </body>
 

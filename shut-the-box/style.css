@@ -1,5 +1,4 @@
 .grid {
-  height: 300px;
   width: 900px;
   border: solid black 1px;
 }
@@ -10,13 +9,21 @@
   padding-bottom: 20px;
 }
 
-.numbers-container div {
-  width: 200px;
-  height: 100px;
+.number,
+.dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid black 1px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.number {
+  width: 200px;
+  height: 115px;
   border-top: 0;
   margin: 0 5px;
-  text-align: center;
 }
 
 .dice-container {
@@ -25,12 +32,28 @@
   align-items: center;
 }
 
-.dice-container div{
+.dice {
+  width: 125px;
+  height: 125px;
+  margin: 15px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.actions-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
-  border: solid black 1px;
-  margin: 15px;
+  padding: 10px;
+}
+
+.actions-container button{
+  margin-right: 5px;
+}
+
+.current-player {
+  color: red;
 }
