@@ -5,8 +5,8 @@ const dices = document.querySelectorAll(".dice-container div");
 const startButton = document.getElementById("start");
 const giveUpButton = document.getElementById("give-up");
 
-let dice1 = 0;
-let dice2 = 0;
+let dice1 = 1;
+let dice2 = 1;
 let selectedNumbers = [];
 let currentPlayer = 1;
 
@@ -16,8 +16,6 @@ player2Score.textContent = 0;
 startButton.addEventListener("click", () => {
   startButton.disabled = true;
   giveUpButton.disabled = false;
-  dices[0].textContent = 1;
-  dices[1].textContent = 1;
   enableDices();
   enableNumbers();
 });
@@ -39,14 +37,11 @@ giveUpButton.addEventListener("click", () => {
     default:
       break;
   }
-  dices[0].textContent = 1;
-  dices[1].textContent = 1;
+  dices[0].childNodes[0].src = `images/dice${1}.png`;
+  dices[1].childNodes[0].src = `images/dice${1}.png`;
   enableDices();
   enableNumbers();
   selectedNumbers = [];
-  dices.forEach(element => {
-    element.textContent = "";
-  });
 });
 
 function enableNumbers() {
@@ -68,6 +63,8 @@ function enableDices() {
     element.addEventListener("click", rollDice);
     element.classList.remove("disabled");
   });
+  dices[0].childNodes[0].src = `images/dice${dice1}.png`;
+  dices[1].childNodes[0].src = `images/dice${dice2}.png`;
 }
 
 function disableNumbers() {
@@ -93,11 +90,10 @@ function selectNumber(e) {
 }
 
 function rollDice() {
-  dices.forEach(dice => {
-    dice.textContent = Math.floor((Math.random() * 6) + 1);
-  });
-  dice1 = parseInt(dices[0].textContent);
-  dice2 = parseInt(dices[1].textContent);
+  dice1 = Math.floor((Math.random() * 6) + 1);
+  dice2 = Math.floor((Math.random() * 6) + 1);
+  dices[0].childNodes[0].src = `images/dice${dice1}.png`;
+  dices[1].childNodes[0].src = `images/dice${dice2}.png`;
   disableDices();
 }
 
@@ -114,17 +110,29 @@ function validateSum() {
     selectedNumbers = [];
     enableDices();
   }
+  if (allSelected()) {
+    alert(`Player${currentPlayer} wins!`);
+  }
 }
 
 function addPoints() {
   let result = 0;
   numbers.forEach(element => {
-    if(!element.classList.contains("disabled")){
+    if (!element.classList.contains("disabled")) {
       result += parseInt(element.textContent);
     }
   });
   if (selectedNumbers.length > 0) {
     result += selectedNumbers.reduce((partialSum, a) => partialSum + a, 0);
+  }
+  return result;
+}
+
+function allSelected() {
+  let result = false;
+  const parent =  document.querySelector(".numbers-container");
+  if (numbers.length === parent.querySelectorAll(".disabled").length) {
+    result = true;
   }
   return result;
 }
