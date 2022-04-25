@@ -16,6 +16,8 @@ player2Score.textContent = 0;
 startButton.addEventListener("click", () => {
   startButton.disabled = true;
   giveUpButton.disabled = false;
+  dices[0].textContent = 1;
+  dices[1].textContent = 1;
   enableDices();
   enableNumbers();
 });
@@ -37,6 +39,8 @@ giveUpButton.addEventListener("click", () => {
     default:
       break;
   }
+  dices[0].textContent = 1;
+  dices[1].textContent = 1;
   enableDices();
   enableNumbers();
   selectedNumbers = [];
@@ -104,7 +108,7 @@ function validateSum() {
     selectedNumbers = [];
     enableDices();
   }
-  if (sum > (dice1 + dice2)) {    
+  if (sum > (dice1 + dice2)) {
     alert("try again");
     enableSelectedNumbers();
     selectedNumbers = [];

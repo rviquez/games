@@ -17,6 +17,7 @@
   border: solid black 1px;
   font-size: larger;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .number {
